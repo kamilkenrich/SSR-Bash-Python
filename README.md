@@ -4,9 +4,6 @@ ShadowsocksR多用户管理脚本（基于官方mujson版本）
 ## 介绍 ##
 一个Shell脚本，集成SSR多用户管理，流量限制，加密更改等基本操作。是一个基于ShadowsocksR官方的mujson的辅助脚本。方便用户操作
 
-## 更新日志 ##
-- 2017-3-8 1.0正式版本
-
 ## 系统支持 ##
 * Ubuntu 14
 * Ubuntu 16
