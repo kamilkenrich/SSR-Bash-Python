@@ -59,22 +59,22 @@ fi
 
 #Install SSR and SSR-Bash
 cd /usr/local
-git clone https://github.com/shadowsocksr/shadowsocksr.git
-git clone https://github.com/FunctionClub/SSR-Bash-Python.git
+git clone https://github.com/teddysun/shadowsocksr.git
+git clone https://github.com/kamilkenrich/SSR-Bash-Python.git
 cd /usr/local/shadowsocksr
 bash initcfg.sh
 
 #Install Libsodium
 cd $workdir
-export LIBSODIUM_VER=1.0.11
-wget https://github.com/jedisct1/libsodium/releases/download/1.0.11/libsodium-$LIBSODIUM_VER.tar.gz
-tar xvf libsodium-$LIBSODIUM_VER.tar.gz
-pushd libsodium-$LIBSODIUM_VER
+export LIBSODIUM_VER=1.0.13
+wget https://github.com/jedisct1/libsodium/releases/download/1.0.13/libsodium-1.0.13.tar.gz
+tar xvf libsodium-1.0.13.tar.gz
+pushd libsodium-1.0.13
 ./configure --prefix=/usr && make
 make install
 popd
 ldconfig
-cd $workdir && rm -rf libsodium-$LIBSODIUM_VER.tar.gz libsodium-$LIBSODIUM_VER
+cd $workdir && rm -rf libsodium-1.0.13.tar.gz libsodium-1.0.13
 
 #Start when boot
 if [[ ${OS} == Ubuntu || ${OS} == Debian ]];then
@@ -139,7 +139,7 @@ systemctl enable iptables.service
 fi
 
 #Install SSR-Bash Background
-wget -N --no-check-certificate -O /usr/local/bin/ssr https://raw.githubusercontent.com/FunctionClub/SSR-Bash-Python/master/ssr
+wget -N --no-check-certificate -O /usr/local/bin/ssr https://raw.githubusercontent.com/kamilkenrich/SSR-Bash-Python/master/ssr
 chmod +x /usr/local/bin/ssr
 
 #Modify ShadowsocksR API
@@ -149,9 +149,3 @@ sed -i "s/SERVER_PUB_ADDR = '127.0.0.1'/SERVER_PUB_ADDR = '$(wget -qO- -t1 -T2 i
 #INstall Success
 bash /usr/local/SSR-Bash-Python/self-check.sh
 echo '安装完成！输入 ssr 即可使用本程序~'
-echo 'Telegram Group: https://t.me/functionclub'
-echo 'Google Puls: https://plus.google.com/communities/113154644036958487268'
-echo 'Github: https://github.com/FunctionClub'
-echo 'QQ Group:277717865'
-echo 'Function Club 无限期停更说明'
-echo 'https://www.ixh.me/2017/05/function-club-stop/'
